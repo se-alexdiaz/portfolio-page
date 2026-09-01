@@ -8,7 +8,7 @@ else {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classlist.add('is-visible');
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
           }
         });
@@ -18,15 +18,16 @@ else {
 
 }
 
-// Offset anchor scrolling for fixed nav
-const navHeight = document.querySelector('.nav').offsetHeight;
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-        const id = link.getAttribute('href').slice(1);
-        const target = document.getElementById(id);
-        if (!target) return; 
-        e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - (navHeight - 1);
-        window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
-});
+
+// const navHeight = document.querySelector('.nav').offsetHeight;
+
+// document.querySelectorAll('a[href^="#"]').forEach(link => {
+//     link.addEventListener('click', (e) => {
+//         const id = link.getAttribute('href').slice(1);
+//         const target = document.getElementById(id);
+//         if (!target) return; 
+//         e.preventDefault();
+//         const top = target.getBoundingClientRect().top + window.scrollY - (navHeight - 1);
+//         window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+//     });
+// });
